@@ -1,5 +1,9 @@
 void escape () {
-
+ 
+  if (Grilla[posX+1][posY] ==4) { //medallon
+    embrujado = true;
+  }
+  
   if (embrujado == true) {
     cuenta--;
     aviso ();
