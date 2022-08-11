@@ -15,7 +15,9 @@ PImage sprite;
 PImage [] img = new PImage [7];
 int posYcreditos;
 float oscuridad;
-float oscuridad2;
+float oscuridadPersonaje;
+float volverAMenuX;
+float volverAMenuY;
 
 
 void setup () {
@@ -38,7 +40,9 @@ void setup () {
   posY = 23;
   posYcreditos = height+height/12;
   oscuridad = 255;
-  oscuridad2 = 255;
+  oscuridadPersonaje = 255;
+  volverAMenuX = width-width/8;
+  volverAMenuY = height-height/12;
 }
 
 void draw () {
@@ -48,7 +52,7 @@ void draw () {
   dibujarBasePersonaje ();
   escape ();
   if (pantalla == 1 || pantalla == 2) {
-    personaje ();
+    personaje (anchoCuadro+anchoCuadro,altoCuadro+altoCuadro);
   }
   if (pantalla == 1) {
     image (img[1], 0, 0, width, height);
