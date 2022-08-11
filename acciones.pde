@@ -9,9 +9,6 @@ void keyPressed () {  //MOVIMIENTOS
     if (Grilla[posX+1][posY] == 0)
       posX++;
   }
-  if (Grilla[posX+1][posY] ==4) {
-    embrujado = true;
-  }
   if (keyCode == UP) {
     if (Grilla[posX][posY-1] == 0) {
       posY--;
