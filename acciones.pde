@@ -35,7 +35,7 @@ void keyPressed () {  //MOVIMIENTOS
   Grilla[posX][posY] = 2;
 }
 
-void mousePressed () {
+void mousePressed () { //menu
 
   if (pantalla == 0 &&
     mouseX >= width/4 &&
@@ -53,7 +53,8 @@ void mousePressed () {
 }
 
 
-void mouseClicked() {
+void mouseClicked() { //volver a menu
+
   if (pantalla == 5 || pantalla == 4 || pantalla == 3) {
     if ( mouseX >= width-width/8-20
       && mouseY >= height-height/12-15
@@ -65,7 +66,7 @@ void mouseClicked() {
       posY = 23;
       posYcreditos = height+height/12;
       oscuridad = 255;
-      oscuridad2 = 255;
+      oscuridadPersonaje = 255;
     }
   }
 }
