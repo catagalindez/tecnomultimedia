@@ -16,11 +16,11 @@ void pantallas () {
       popStyle();
     }
   } else if (pantalla == 3) {
-    creditos();
+    creditos(volverAMenuX, volverAMenuY);
   } else if (pantalla == 4) {
-    ganaste ();
+    ganaste (volverAMenuX, volverAMenuY);
   } else if (pantalla == 5) {
-    perdiste ();
+    perdiste (volverAMenuX, volverAMenuY);
   }
 }
 
@@ -45,7 +45,7 @@ void menu () {
   popStyle ();
 }
 
-void creditos () {
+void creditos (float volverAMenuX, float volverAMenuY) {
   background (45, 20, 50);
   pushStyle();
   tint (110);
@@ -57,7 +57,7 @@ void creditos () {
   textAlign (CENTER);
   text ("Casa oscura \n\n por: Catalina Galindez\n\n\n Inspirado por:  \n The Witch House \n AliceMare \n Walk", width/2, posYcreditos--);
   textSize (15);
-  text ("Menú", width-width/8, height-height/12);
+  text ("Menú", volverAMenuX, volverAMenuY);
   popStyle ();
 
   if (posYcreditos <= height-height-height/2) {
@@ -77,24 +77,24 @@ void segundoMapa () {
   image (img[2], 0, 0, width, height);
 }
 
-void ganaste () {
+void ganaste (float volverAMenuX, float volverAMenuY) {
   background (45, 20, 50);
   pushStyle ();
   textAlign (CENTER);
   fill (200);
   image (img[5], 0, 0, width, height);
   textSize (15);
-  text ("Menú", width-width/8, height-height/12);
+  text ("Menú", volverAMenuX, volverAMenuY);
   popStyle ();
 }
 
-void perdiste () {
+void perdiste (float volverAMenuX, float volverAMenuY) {
   background (45, 20, 50);
   pushStyle ();
   textAlign (LEFT);
   fill (100);
   image (img[6], 0, 0, width, height);
   textSize (15);
-  text ("Menú", width-width/8, height-height/12);
+  text ("Menú", volverAMenuX, volverAMenuY);
   popStyle ();
 }
