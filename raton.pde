@@ -1,0 +1,6 @@
+class Raton{
+  
+  Raton(){
+  }
+
+}

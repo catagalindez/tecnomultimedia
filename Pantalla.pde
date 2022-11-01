@@ -1,0 +1,6 @@
+class Pantalla{
+
+  Pantalla() {
+  }
+  
+}
