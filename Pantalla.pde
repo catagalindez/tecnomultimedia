@@ -1,6 +1,28 @@
-class Pantalla{
+class Pantalla {
+  Minijuego minijuego;
 
-  Pantalla() {
+  Pantalla() {    
+    minijuego = new Minijuego();
   }
-  
+
+  void dibujar() {    
+    pantallaEnEfecto();
+  }
+
+  void pantallaEnEfecto() {
+    minijuego();
+  }
+
+  void pantalla1() {
+    fill(20);
+    text("inicio", 100, 100);
+  }
+
+  void minijuego() {
+    minijuego.dibujar();
+  }
+
+  void mousePresionado() {
+    minijuego.mousePresionado();
+  }
 }
