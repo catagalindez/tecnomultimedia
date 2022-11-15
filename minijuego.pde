@@ -25,8 +25,7 @@ class Minijuego {
     cuentaPuntaje();
     puntaje.dibujar(cuenta);
     timer.dibujar();
-    timer.perdiste();
-    println (cuenta);
+    println (perdiste()+" "+ganaste());
   }
 
   void dibujarHuecos() {
@@ -39,7 +38,7 @@ class Minijuego {
   }
 
   void asignarRaton() {
-    if (frameCount%60 == 0) {
+    if (frameCount%45 == 0) {
       sacarRaton();
       dibujarRaton();
     }
@@ -72,7 +71,16 @@ class Minijuego {
   }
 
   boolean perdiste() {
-    if (timer.perdiste()== true) {
+    if (ganaste() == false &&
+      timer.perdiste()== true) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  boolean ganaste() {
+    if (puntaje.ganaste() == true) {
       return true;
     } else {
       return false;

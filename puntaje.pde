@@ -7,15 +7,19 @@ class Puntaje {
 
   void dibujar(int cuenta_) {
     cuenta = cuenta_;
-    Contador();
     pushStyle();
     fill (25);
     textSize(30);
     text("Puntaje: "+cuenta, width/20, height/8);
-    println();
     popStyle();
+    ganaste();
   }
 
-  void Contador() {
+  boolean ganaste() {
+    if (cuenta >=10){
+      return true;
+    } else {
+      return false;
+    }
   }
 }

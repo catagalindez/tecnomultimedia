@@ -11,8 +11,8 @@ class Timer {
     fill (25);
     textSize(30);
     text("Tiempo: "+segundos, width-width/4, height/8);
-    println();
     popStyle();
+    perdiste();
   }
   
   void cuenta(){
