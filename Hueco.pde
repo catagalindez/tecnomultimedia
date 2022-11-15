@@ -16,7 +16,10 @@ class Hueco {
 
   void dibujar() {
     hayRaton();
+    pushStyle();
+    fill(255);
     circle (posX, posY, tam);
+    popStyle();
     if (raton != null) {
       dibujarRaton();
     }

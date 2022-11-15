@@ -7,7 +7,8 @@ class Minijuego {
   int segundos = 15;
   int cuenta = 0;
 
-  Minijuego() {
+  Minijuego() {    
+    background(255);
     huecos = new Hueco[numHuecosX][numHuecosY];
     timer = new Timer(segundos);
     puntaje = new Puntaje();
@@ -25,7 +26,6 @@ class Minijuego {
     cuentaPuntaje();
     puntaje.dibujar(cuenta);
     timer.dibujar();
-    println (perdiste()+" "+ganaste());
   }
 
   void dibujarHuecos() {
