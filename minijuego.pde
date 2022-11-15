@@ -1,13 +1,16 @@
 class Minijuego {
   Hueco [] [] huecos;
-  Contador contador;
+  Timer timer;
+  Puntaje puntaje;
   int numHuecosX = 3;
   int numHuecosY = 2;
   int segundos = 15;
+  int cuenta = 0;
 
   Minijuego() {
     huecos = new Hueco[numHuecosX][numHuecosY];
-    contador = new Contador(segundos);
+    timer = new Timer(segundos);
+    puntaje = new Puntaje();
     for (int i = 0; i < numHuecosX; i++) {
       for (int j = 0; j < numHuecosY; j++) {
         int posX = round (map(i, 0, numHuecosX, 0+width/4, width));
@@ -19,11 +22,15 @@ class Minijuego {
 
   void dibujar() {
     dibujarHuecos();
-    contador.dibujar();
-    contador.perdiste();
+    cuentaPuntaje();
+    puntaje.dibujar(cuenta);
+    timer.dibujar();
+    timer.perdiste();
+    println (cuenta);
   }
 
   void dibujarHuecos() {
+    asignarRaton();
     for (int i = 0; i < numHuecosX; i++) {
       for (int j = 0; j < numHuecosY; j++) {
         huecos[i][j].dibujar();
@@ -33,14 +40,39 @@ class Minijuego {
 
   void asignarRaton() {
     if (frameCount%60 == 0) {
-      int i = floor(random(0, 3));
-      int j = floor(random(0, 2));
-      huecos[i][j].raton=new Raton(huecos[i][j].posX, huecos[i][j].posY);
+      sacarRaton();
+      dibujarRaton();
+    }
+  }
+
+  void dibujarRaton() {
+    int i = floor(random(0, numHuecosX));
+    int j = floor(random(0, numHuecosY));
+    huecos[i][j].raton=new Raton(huecos[i][j].posX, huecos[i][j].posY);
+  }
+
+  void sacarRaton() {
+    for (int i = 0; i < numHuecosX; i++) {
+      for (int j = 0; j < numHuecosY; j++) {
+        huecos[i][j].raton= null;
+      }
+    }
+  }
+
+  void cuentaPuntaje() {
+    for (int i = 0; i < numHuecosX; i++) {
+      for (int j = 0; j < numHuecosY; j++) {
+        if (huecos[i][j].atrapaRaton==true) {
+          cuenta+=1;
+          huecos[i][j].resetAtrapa();
+          huecos[i][j].raton= null;
+        }
+      }
     }
   }
 
   boolean perdiste() {
-    if (contador.perdiste()== true) {
+    if (timer.perdiste()== true) {
       return true;
     } else {
       return false;

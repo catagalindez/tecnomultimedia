@@ -6,25 +6,24 @@ class Hueco {
   float posX;
   float posY;
   float tam = height/4;
+  int puntaje = 0;
+  boolean atrapaRaton = false;
 
   Hueco(float posX_, float posY_) {
-    /*ratones = new Raton[cantRatonesX][cantRatonesY];
-     for (int i = 0; i < cantRatonesX; i++) {
-     for (int j = 0; j < cantRatonesY; j++) {
-     int k = round (map(i, 0, cantRatonesX, 0+width/4, width));
-     int l = round (map(j, 0, cantRatonesY, 0+height/4+height/15, height));
-     ratones [i][j] = new Raton(k, l);
-     }
-     }*/
     posX = posX_;
     posY = posY_;
   }
 
   void dibujar() {
+    hayRaton();
     circle (posX, posY, tam);
     if (raton != null) {
       dibujarRaton();
     }
+  }
+
+  boolean hayRaton() {
+    return raton != null;
   }
 
   void dibujarRaton() {
@@ -32,5 +31,17 @@ class Hueco {
   }
 
   void mousePresionado() {
+    if(dist(mouseX,mouseY,posX,posY)<tam){
+      if (hayRaton() == true){
+        atrapaRaton = true;
+      }
+    }
   }
+  
+  void resetAtrapa(){
+    if (atrapaRaton == true){
+      atrapaRaton = false;
+    }
+  }
+  
 }

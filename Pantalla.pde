@@ -6,10 +6,6 @@ class Pantalla {
   }
 
   void dibujar() {    
-    pantallaEnEfecto();
-  }
-
-  void pantallaEnEfecto() {
     minijuego();
   }
 
