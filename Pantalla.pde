@@ -6,6 +6,10 @@ class Pantalla {
   int numPantalla;
   PImage inicioImg;
   boolean reinicio= false;
+  int creditosPosY = height+40;
+  int creditosPosY2 = height+100;
+  int creditosPosY3 = height+260;
+  int creditosPosY4 = height+320;
 
   Pantalla() {    
     historia = new Historia();
@@ -39,8 +43,36 @@ class Pantalla {
   }
 
   void creditos() {
-    fill(20);
-    text("creditos", 100, 100);
+    println(creditosPosY);
+    pushStyle();
+    background(255);
+    tint(255, 100);
+    image(inicioImg, 0, 0);
+    fill(25);
+    textAlign (CENTER);
+    textSize(30);
+    text("Créditos", width/2, creditosPosY--);
+    textSize(20);
+    text("Inspirado por los libros de Crea tu propia aventura \n Y por mi gato, Luther \n Código, ilustraciones e historia por Catalina Galindez \n Tecno Multimedia I - 2022",width/2,creditosPosY2--);
+    textSize(30);
+    text("Sonido",width/2,creditosPosY3--);
+    textSize(20);
+    text("coffee and herbs - sunsetflowerarray \n Ragtime Piano - M. Kendree Miller \n UI Click - Ranner \n Cat Purr Meow - EdR", width/2, creditosPosY4--);
+    popStyle();
+    
+    if(creditosPosY<-400){
+      creditosPosY = height+40;
+    }
+    if(creditosPosY2<-330){
+      creditosPosY2 = height+100;
+    }
+    if(creditosPosY3<-180){
+      creditosPosY3 = height+260;
+    }
+    if(creditosPosY4<-110){
+      creditosPosY4 = height+320;
+    }
+    
     boton.boton3("Menú");
   }
 
@@ -110,7 +142,7 @@ class Pantalla {
       }
       reinicio = false;
     }
-    if (historia.reinicio==true){
+    if (historia.reinicio==true) {
       reiniciar();
     }
   }
@@ -123,5 +155,4 @@ class Pantalla {
     historia.jugar = false;
     historia.reinicio = false;
   }
-
 }
