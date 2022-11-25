@@ -34,17 +34,24 @@ class Hueco {
   }
 
   void mousePresionado() {
-    if(dist(mouseX,mouseY,posX,posY)<tam){
-      if (hayRaton() == true){
+    if (dist(mouseX, mouseY, posX, posY)<tam) {
+      if (hayRaton() == true) {
         atrapaRaton = true;
+        maullido();
       }
     }
   }
-  
-  void resetAtrapa(){
-    if (atrapaRaton == true){
+
+  void resetAtrapa() {
+    if (atrapaRaton == true) {
       atrapaRaton = false;
     }
   }
   
+  void maullido(){
+    if (round(random(1,3))==1){
+      purrMeow.play();
+    }
+    
+  }
 }

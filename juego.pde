@@ -1,6 +1,5 @@
 class Juego {
   Pantalla pantalla;
-  int numPantallas;
 
   Juego() {
     pantalla = new Pantalla();

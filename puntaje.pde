@@ -1,8 +1,8 @@
 class Puntaje {
   int cuenta;
+  boolean reinicio = false;
 
   Puntaje() {
-    
   }
 
   void dibujar(int cuenta_) {
@@ -16,10 +16,20 @@ class Puntaje {
   }
 
   boolean ganaste() {
-    if (cuenta >=10){
+    if (cuenta >=10) {
       return true;
+    } else if (reinicio == true) {
+      return false;
     } else {
       return false;
     }
+  }
+
+  void reiniciar() {
+    if (reinicio == false) {
+      reinicio = true;
+      cuenta= 0;
+    }
+    reinicio = false;
   }
 }

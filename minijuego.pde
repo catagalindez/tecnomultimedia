@@ -2,16 +2,20 @@ class Minijuego {
   Hueco [] [] huecos;
   Timer timer;
   Puntaje puntaje;
+  Pata pata;
+  Boton boton;
   int numHuecosX = 3;
   int numHuecosY = 2;
   int segundos = 15;
   int cuenta = 0;
+  boolean reinicio = false;
 
   Minijuego() {    
-    background(255);
     huecos = new Hueco[numHuecosX][numHuecosY];
     timer = new Timer(segundos);
     puntaje = new Puntaje();
+    pata = new Pata();
+    boton = new Boton();
     for (int i = 0; i < numHuecosX; i++) {
       for (int j = 0; j < numHuecosY; j++) {
         int posX = round (map(i, 0, numHuecosX, 0+width/4, width));
@@ -26,6 +30,13 @@ class Minijuego {
     cuentaPuntaje();
     puntaje.dibujar(cuenta);
     timer.dibujar();
+    pata.dibujar();
+    if (ganaste()==true){
+      pantallaGanaste();
+    }
+    if (perdiste()==true){
+      pantallaPerdiste();
+    }
   }
 
   void dibujarHuecos() {
@@ -69,9 +80,25 @@ class Minijuego {
       }
     }
   }
+  
+  void pantallaPerdiste() {
+    background(255);
+    fill(20);
+    text("perdiste", 100, 100);
+    boton.boton3("Menú");
+  }
+
+  void pantallaGanaste() {
+    background(255);
+    fill(20);
+    text("ganaste", 100, 100);
+    boton.boton3("Menú");
+  }
 
   boolean perdiste() {
-    if (ganaste() == false &&
+    if (reinicio==true) {
+      return false;
+    } else if (ganaste() == false &&
       timer.perdiste()== true) {
       return true;
     } else {
@@ -80,7 +107,9 @@ class Minijuego {
   }
 
   boolean ganaste() {
-    if (puntaje.ganaste() == true) {
+    if (reinicio==true) {
+      return false;
+    } else if (puntaje.ganaste() == true) {
       return true;
     } else {
       return false;
@@ -93,5 +122,16 @@ class Minijuego {
         huecos[i][j].mousePresionado();
       }
     }
+    pata.mousePresionado();
+  }
+
+  void reiniciar () {
+    timer.reiniciar();
+    puntaje.reiniciar();
+    if (reinicio == false) {
+      reinicio = true;
+      cuenta = 0;
+    }
+    reinicio = false;
   }
 }
