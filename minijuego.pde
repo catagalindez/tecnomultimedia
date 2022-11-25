@@ -4,6 +4,7 @@ class Minijuego {
   Puntaje puntaje;
   Pata pata;
   Boton boton;
+  PImage fondoImg;
   int numHuecosX = 3;
   int numHuecosY = 2;
   int segundos = 15;
@@ -16,6 +17,7 @@ class Minijuego {
     puntaje = new Puntaje();
     pata = new Pata();
     boton = new Boton();
+    fondoImg = loadImage ("fondo juego.png");
     for (int i = 0; i < numHuecosX; i++) {
       for (int j = 0; j < numHuecosY; j++) {
         int posX = round (map(i, 0, numHuecosX, 0+width/4, width));
@@ -40,6 +42,7 @@ class Minijuego {
   }
 
   void dibujarHuecos() {
+    image(fondoImg,0,0);
     asignarRaton();
     for (int i = 0; i < numHuecosX; i++) {
       for (int j = 0; j < numHuecosY; j++) {

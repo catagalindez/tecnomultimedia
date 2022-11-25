@@ -9,6 +9,8 @@ class Timer {
   void dibujar() {
     cuenta();
     pushStyle();
+    fill(255);
+    rect(width-width/4-10,height/8-40,190,60);
     fill (25);
     textSize(30);
     text("Tiempo: "+segundos, width-width/4, height/8);

@@ -8,6 +8,8 @@ class Puntaje {
   void dibujar(int cuenta_) {
     cuenta = cuenta_;
     pushStyle();
+    fill(255);
+    rect(width/20-10,height/8-40,170,60);
     fill (25);
     textSize(30);
     text("Puntaje: "+cuenta, width/20, height/8);

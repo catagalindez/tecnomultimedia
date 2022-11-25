@@ -18,7 +18,6 @@ class Pantalla {
   void dibujar() {
     background(255);
     pantallaActual();
-    println(numPagina);
   }
 
   void pantallaActual() {

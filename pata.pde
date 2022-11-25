@@ -1,14 +1,24 @@
 class Pata {
   color relleno= 255;
   int espera;
+  PImage imgPata;
+  PImage imgPataAgarra;
 
   Pata() {
+    imgPata = loadImage ("pata.png");
+    imgPataAgarra = loadImage ("pata agarra.png");
   }
 
   void dibujar() {
     pushStyle();
-    fill(relleno);
-    circle(mouseX, mouseY, height/20);
+    imageMode(CENTER);
+    if(relleno==255){
+      image(imgPata,mouseX,mouseY);
+    } else if(relleno == 100){
+      image(imgPataAgarra,mouseX,mouseY);
+    }    
+    //fill(relleno);
+    //circle(mouseX, mouseY, height/20);
     popStyle();
     volverAOrig();
   }

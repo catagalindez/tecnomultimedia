@@ -1,4 +1,6 @@
 class Historia {
+  PImage [] img = new PImage [9];
+  int numImagenes = 9;
   int numPagina;
   boolean jugar = false;
   boolean reinicio = false;
@@ -6,6 +8,9 @@ class Historia {
 
   Historia() {
     boton = new Boton();
+    for (int i = 0; i < numImagenes; i++){
+      img[i] = loadImage("historia"+i+".png");
+    }
   }
 
   void dibujar(int numPagina) {
@@ -48,7 +53,7 @@ class Historia {
   void gatoDuerme() {
     background(255);
     fill(20);
-    text("Gato duerme", 100, 100);
+    image(img[0], 0, 0);
     boton.boton1("Buscar sol");
     boton.boton2("Buscar comida");
     boton.boton3("Buscar juguete");
@@ -57,15 +62,15 @@ class Historia {
   void buscarComida() {
     background(255);
     fill(20);
-    text("Busca comida", 100, 100);
-    text("¿Qué es eso en la comida?", 400, 500);
+    image(img[7], 0, 0);
+    text("¿Qué es eso en la comida?", 450, 300);
     boton.boton1("Investigar");
   }
 
   void hayRatonesEnComida() {
     background(255);
     fill(20);
-    text("Hay ratones en la comida", 100, 100);
+    image(img[8], 0, 0);
     boton.boton2("¡Cazar!");
     boton.boton3("Hacer otra cosa");
   }
@@ -73,7 +78,7 @@ class Historia {
   void buscarSol() {
     background(255);
     fill(20);
-    text("Busca sol", 100, 100);
+    image(img[1], 0, 0);
     boton.boton4("En la ventana");
     boton.boton5("En el piso");
   }
@@ -81,21 +86,21 @@ class Historia {
   void solEnVentana() {
     background(255);
     fill(20);
-    text("Sol en ventana", 100, 100);
+    image(img[2], 0, 0);
     boton.boton3("Menú");
   }
 
   void solEnPiso() {
     background(255);
     fill(20);
-    text("Sol en piso", 100, 100);
+    image(img[3], 0, 0);
     boton.boton3("Menú");
   }
 
   void buscarJuguete() {
     background(255);
     fill(20);
-    text("Busca juguete", 100, 100);
+    image(img[4], 0, 0);
     boton.boton1("Buscar pelota");
     boton.boton2("¡Una caja!");
   }
@@ -103,14 +108,14 @@ class Historia {
   void pelotita() {
     background(255);
     fill(20);
-    text("pelotita", 100, 100);
+    image(img[5], 0, 0);
     boton.boton3("Menú");
   }
 
   void caja() {
     background(255);
     fill(20);
-    text("caja", 100, 100);
+    image(img[6], 0, 0);
     boton.boton3("Menú");
   }
 
