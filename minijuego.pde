@@ -4,7 +4,7 @@ class Minijuego {
   Puntaje puntaje;
   Pata pata;
   Boton boton;
-  PImage fondoImg;
+  PImage fondoImg, imgGanaste, imgPerdiste;
   int numHuecosX = 3;
   int numHuecosY = 2;
   int segundos = 15;
@@ -18,6 +18,8 @@ class Minijuego {
     pata = new Pata();
     boton = new Boton();
     fondoImg = loadImage ("fondo juego.png");
+    imgGanaste = loadImage ("ganaste.png");
+    imgPerdiste = loadImage ("perdiste.png");
     for (int i = 0; i < numHuecosX; i++) {
       for (int j = 0; j < numHuecosY; j++) {
         int posX = round (map(i, 0, numHuecosX, 0+width/4, width));
@@ -86,15 +88,17 @@ class Minijuego {
   
   void pantallaPerdiste() {
     background(255);
+    image (imgPerdiste,0,0);
     fill(20);
-    text("perdiste", 100, 100);
+    text("¡Perdiste! :(", 100, 100);
     boton.boton3("Menú");
   }
 
   void pantallaGanaste() {
     background(255);
+    image (imgGanaste,0,0);
     fill(20);
-    text("ganaste", 100, 100);
+    text("¡¡Ganaste!! :D", 50, 100);
     boton.boton3("Menú");
   }
 
